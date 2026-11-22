@@ -4,11 +4,12 @@ import io
 import json
 import os
 import sqlite3
-from collections import Counter
+from collections import Counter, defaultdict
 from contextlib import closing
 from math import ceil
 from pathlib import Path
 from struct import pack, unpack
+from time import perf_counter
 from urllib.parse import urlsplit
 
 from flask import Flask, Response, abort, redirect, render_template, request, url_for
@@ -18,6 +19,7 @@ ROOT = Path(__file__).resolve().parent
 app = Flask(__name__)
 app.config.update(DATABASE=os.getenv("CAMPUSFLOW_DB", str(ROOT/"campusflow.sqlite3")), MAX_CONTENT_LENGTH=2_000_000)
 MODEL = json.loads((ROOT/"difficulty_model.json").read_text())
+RUNTIME = json.loads((ROOT/"runtime_model.json").read_text())
 
 
 
@@ -55,16 +57,62 @@ def store(db, revision, catalog, tables):
     db.commit()
 
 
-def prediction(features):
-    tree = MODEL["tree"]
-    assert tree["features"] == FEATURES
+def model_leaf(tree, features):
     node = 0
     while tree["left"][node] != -1:
         value = unpack("f",pack("f",features[tree["feature"][node]]))[0]
         side = "left" if value <= tree["threshold"][node] else "right"
         node = tree[side][node]
-    easy, difficult = tree["leaf_counts"][str(node)]
+    return node
+
+
+def prediction(features):
+    tree = MODEL["tree"]
+    assert tree["features"] == FEATURES
+    easy, difficult = tree["leaf_counts"][str(model_leaf(tree, features))]
     return round(100 * difficult / (easy + difficult))
+
+
+def duration(seconds):
+    if seconds < 1:
+        return "under a second"
+    return f"{seconds:.1f} seconds"
+
+
+def planning_time(minutes):
+    if minutes < 1:
+        return "less than a minute"
+    hours, remainder = divmod(round(minutes), 60)
+    parts = []
+    if hours:
+        parts.append(f"{hours} hour" + ("s" if hours != 1 else ""))
+    if remainder:
+        parts.append(f"{remainder} minute" + ("s" if remainder != 1 else ""))
+    return " ".join(parts)
+
+
+def workload(tasks, fixed, features):
+    divisions = defaultdict(set)
+    for task in tasks:
+        divisions[task["teacher"]].add(task["division"])
+    for division, rows in fixed.items():
+        for row in rows:
+            divisions[row["teacher"]].add(division)
+    shared = {teacher for teacher, groups in divisions.items() if len(groups) > 1}
+    shared_periods = sum(t["periods"] for t in tasks if t["teacher"] in shared)
+    periods = sum(t["periods"] for t in tasks)
+    assert RUNTIME["features"] == FEATURES + ["requested_periods", "subject_assignments"]
+    leaf = model_leaf(RUNTIME, features + [periods, len(tasks)])
+    seconds = RUNTIME["seconds"][leaf]
+    # Planning allowance only: these weights have not been timed with human planners.
+    room_utilization = features[FEATURES.index("room_utilization")]
+    lab_pairs = sum(t["periods"] // 2 for t in tasks if t["lab"])
+    manual_seconds = periods * (30 + 30 * room_utilization) + 20 * shared_periods + 30 * lab_pairs
+    manual = manual_seconds / 60
+    return dict(shared_periods=shared_periods, shared_percent=round(100 * shared_periods / periods),
+                lab_pairs=lab_pairs, seconds_per_period=round(manual_seconds / periods),
+                runtime=duration(seconds), manual=planning_time(manual),
+                saving=planning_time(max(0, manual - seconds / 60)))
 
 
 def screen(revision,c,tables,**kwargs):
@@ -75,7 +123,7 @@ def screen(revision,c,tables,**kwargs):
     summary = None
     if tab == "schedule":
         if request.method == "GET" and request.args.get("choose"):
-            selected = request.args.getlist("selected")
+            selected = list(dict.fromkeys(request.args.getlist("selected")))
         try:
             fixed, tasks, features = prepare(c, tables, selected)
             periods = sum(s["periods"] for s in tasks)
@@ -85,7 +133,8 @@ def screen(revision,c,tables,**kwargs):
             needed = max(ceil((periods + len(held)) / week),
                          len(set(labs) | {r["room"] for r in held}))
             summary = dict(score=prediction(features), periods=periods, rooms=needed, labs=labs,
-                           teachers=len({s["teacher"] for s in tasks}), held=len(held))
+                           teachers=len({s["teacher"] for s in tasks}), held=len(held),
+                           **workload(tasks, fixed, features))
         except ValueError as exc:
             kwargs.setdefault("error", str(exc))
     room_counts = Counter(r["room"] for rows in tables.values() for r in rows)
@@ -181,12 +230,14 @@ def action():
                 fixed,tasks,_ = prepare(c,tables,selected)
                 if op=="preview":
                     return screen(rev,c,tables,selected=selected)
+                start = perf_counter()
                 result = solve(c,fixed,tasks)
-                outcome = "Your timetables are ready."
+                elapsed = duration(perf_counter() - start)
+                outcome = f"Saved {len(selected)} weekly timetable{'s' if len(selected) != 1 else ''} in {elapsed}."
                 if result.tables is None:
                     outcome = ("We ran out of time trying arrangements." if result.status == "search limit reached"
                                else "These classes cannot fit in the available slots.")
-                    outcome += " Review teachers, lab rooms and weekly periods in College details."
+                    outcome += f" Search took {elapsed}. Review teachers, lab rooms and weekly periods in College details."
                     return screen(rev,c,tables,error=outcome,selected=selected)
                 store(db,rev,c,result.tables)
                 return screen(rev+1,c,result.tables,message=outcome,report=audit(c,result.tables),selected=selected)

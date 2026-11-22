@@ -7,8 +7,10 @@
 {% if error %}<p class="error" role="alert">{{error}}</p>{% endif %}
 {% if request.args.get('saved') %}<p class="notice" role="status">College details saved.</p>{% endif %}
 {% if message %}<p class="notice" role="status">{{message}}</p>{% endif %}
-{% if report and tables %}<section class="report"><strong>{{report.scheduled}} / {{report.required}} periods booked</strong> · {{report.clashes.teacher}} teacher clashes · {{report.clashes.room}} room clashes · {{report.clashes.division}} division clashes
-{% for issue in report.issues %}<p>{{issue}}</p>{% else %}<p>Subject counts and consecutive lab sessions verified for all saved divisions.</p>{% endfor %}</section>{% endif %}
+{% if report and tables %}<section class="report">
+{% if report.issues %}<strong>Some classes need attention.</strong>{% for issue in report.issues %}<p>{{issue}}</p>{% endfor %}
+{% else %}<strong>All {{report.scheduled}} saved periods checked. No clashes.</strong>{% endif %}
+ <a href="/?tab=view">View timetables</a></section>{% endif %}
 {% if tab=='welcome' %}
 <section class="welcome-hero">
   <div class="intro">
@@ -51,21 +53,27 @@
 </details>
 {% elif tab=='schedule' %}
 <h1>Plan your week</h1>
-<p class="lead">Choose the divisions that need a timetable. See what they need before you build.</p>
+<p class="lead">Choose up to {{classes|length}} divisions. Each one gets its own weekly timetable.</p>
 <div class="planner">
 <section class="division-panel"><h2>Class divisions</h2>
 <form method="get" action="/" id="selection"><input type="hidden" name="tab" value="schedule"><input type="hidden" name="choose" value="1"><input type="hidden" name="rev" value="{{rev}}">
 {% for d in classes %}<label class="division-choice"><input type="checkbox" name="selected" value="{{d}}" {% if d in selected %}checked{% endif %}><span>{{d}}</span><small>{{'Saved' if d in tables else 'Unscheduled'}}</small></label>{% endfor %}
 <button id="refresh-plan">Update estimate</button></form></section>
-<section class="plan-sheet"><h2>Scheduling difficulty</h2>
+<section class="plan-sheet">
 {% if plan %}
-<div class="difficulty"><strong>{{plan.score}}<span>%</span></strong><span>of similar sample weeks took extra work to arrange.</span></div>
-<meter aria-label="Estimated scheduling difficulty" min="0" max="100" value="{{plan.score}}">{{plan.score}}%</meter>
-<dl class="stats"><div><dt>Weekly periods</dt><dd>{{plan.periods}}</dd></div><div><dt>Teachers needed</dt><dd>{{plan.teachers}}</dd></div><div><dt>Minimum rooms</dt><dd>≥ {{plan.rooms}}</dd></div></dl>
-<p class="footnote">At least {{plan.rooms}} of {{c.rooms|length}} available rooms across the week{% if plan.held %}, including {{plan.held}} periods already saved for other divisions{% endif %}. The final layout may use more.</p>
-{% if plan.labs %}<p><b>Required labs</b> · {{plan.labs|join(' · ')}}</p>{% endif %}
+<h2>{{selected|length}} weekly timetable{{'s' if selected|length != 1}}</h2>
+<p>{{plan.periods}} periods to schedule. CampusFlow checks that teachers and rooms are free.</p>
+<p><strong>Estimated build time</strong> · {{plan.runtime}}</p>
+<p><strong>Time you could save</strong> · About {{plan.saving}}</p>
+<p class="footnote">Estimated from your classes, shared teachers, labs and room availability.</p>
 <button form="selection" formmethod="post" formaction="/action" name="action" value="generate">Build timetable</button>
-{% else %}<p>Choose divisions with available teachers, rooms and class periods to see an estimate.</p>{% endif %}</section></div>
+<details><summary>Rooms, teachers and time estimates</summary>
+<p>At least {{plan.rooms}} of {{c.rooms|length}} available rooms are needed{% if plan.held %}, including space for {{plan.held}} periods already saved for other divisions{% endif %}.</p>
+{% if plan.labs %}<p>Labs needed: {{plan.labs|join(', ')}}.</p>{% endif %}
+<p>{{plan.teachers}} teachers cover these classes. {{plan.shared_percent}}% of periods use a teacher who also teaches another division.</p>
+{% if plan.lab_pairs %}<p>{{plan.lab_pairs}} lab session{{'s' if plan.lab_pairs != 1}} need{{'s' if plan.lab_pairs == 1}} two periods in a row.</p>{% endif %}
+<p>For this plan, we allow about {{plan.seconds_per_period}} seconds per period by hand, or about {{plan.manual}} in total. This is a rough estimate for scheduling only. The app estimates its own time from past sample runs.</p></details>
+{% else %}<h2>Your timetable</h2><p>Choose a division with classes to see its estimate.</p>{% endif %}</section></div>
 {% if tables %}<p><a href="/?tab=view">Explore saved timetables →</a></p>{% endif %}
 {% elif tab=='view' %}
 <h1>Class timetables</h1><div class="tabs">{% for d in classes %}<a {% if d==division %}aria-current="page"{% endif %} href="{{url_for('home',tab='view',view=d)}}">{{d}}</a>{% endfor %}</div>

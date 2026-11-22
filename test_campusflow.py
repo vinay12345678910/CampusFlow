@@ -31,10 +31,10 @@ class Practical(unittest.TestCase):
 
     def test_demo(self):
         self.assertIn(b'<h1>Welcome to CampusFlow</h1>',self.client.get('/').data)
-        self.assertIn(b'Scheduling difficulty',self.client.get('/?tab=schedule').data)
+        self.assertIn(b'Time you could save',self.client.get('/?tab=schedule').data)
         self.assertIn(b'Build timetable',self.post("preview",selected=CLASSES).data)
         self.assertFalse(self.state()[2])
-        self.assertIn(b'Your timetables are ready',self.post("generate",selected=CLASSES).data)
+        self.assertIn(b'Saved 4 weekly timetables',self.post("generate",selected=CLASSES).data)
         _,c,old=self.state()
         report=audit(c,old)
         self.assertEqual((report['scheduled'],report['required'],report['issues']),(120,120,[]))
@@ -74,6 +74,20 @@ class Practical(unittest.TestCase):
         empty = self.client.get('/?tab=schedule&choose=1').text
         self.assertIn('Select at least one valid division', empty)
         self.assertNotIn('<meter', empty)
+
+    def test_manual_comparison(self):
+        page = self.client.get('/?tab=schedule').text
+        self.assertNotIn('name="pace"', page)
+        self.assertEqual(page, self.client.get('/?tab=schedule&pace=2').text)
+        self.assertIn('2 hours 41 minutes', page)
+        self.post('add_room', name='Lecture Hall')
+        self.assertIn('2 hours 29 minutes', self.client.get('/?tab=schedule').text)
+        self.assertIn('4 weekly timetables', page)
+        self.assertIn('Saved 1 weekly timetable in', self.post('generate', selected=CLASSES[:1]).text)
+        page = self.client.get('/?tab=schedule&choose=1&selected=Second+Year+B').text
+        self.assertIn('1 weekly timetable', page)
+        self.assertIn('31 minutes', page)
+        self.assertIn('100% of periods use a teacher', page)
 
     def test_import(self):
         _,c,_=self.state()

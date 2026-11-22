@@ -10,7 +10,7 @@ A fast, intelligent college timetable scheduling system for academic departments
 
 - **⚡ Ultra-Fast Scheduling**: Generate complete timetables in 2-3ms using deterministic backtracking
 - **🔬 Lab Session Support**: Automatic scheduling of consecutive lab periods
-- **📊 Smart Planning**: ML-based difficulty estimation before generation
+- **📊 Smart Planning**: Manual workload, automatic time-saving estimates, and an ML forecast of scheduler runtime
 - **🎯 Conflict Detection**: Prevents teacher, room, and division clashes
 - **📥 Import/Export**: CSV export and JSON import for data portability
 - **🔄 Incremental Updates**: Save divisions separately and update independently
@@ -56,7 +56,7 @@ python app.py
 2. **Generate Timetables**
    - Go to "Schedule" tab
    - Select divisions to schedule
-   - Review difficulty estimate and room requirements
+   - Review teacher coordination, consecutive labs, and room requirements. The manual planning estimate updates automatically from the selected workload and college details. The result also shows the actual search time.
    - Click "Build timetable"
 
 3. **View & Export**
@@ -82,6 +82,7 @@ python app.py
 
 - **`scheduler.py`**: Constraint-based scheduling engine with bitwise optimization
 - **`app.py`**: Flask web application with SQLite persistence
+- **`train_runtime.py`**: Fits the runtime regressor from local solver timings and writes `runtime_model.json`. The bundled model uses 384 sample plans for training and 96 for evaluation. Manual time uses an illustrative allowance of 30 seconds per period, up to 30 more in proportion to room use, 20 per period with a shared teacher and 30 per double-lab session. No human timing study has been performed.
 - **`train_model.py`**: Decision tree model for difficulty prediction
 - **`templates/campus.html`**: Single-page responsive interface
 - **`static/campus.js`**: Progressive enhancement JavaScript

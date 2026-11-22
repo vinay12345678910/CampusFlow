@@ -199,3 +199,5 @@ main{padding-top:1.7rem}.welcome-hero .intro{position:relative;isolation:isolate
 @media(max-width:760px){.welcome-hero .intro{padding:0}.intro:after{position:static;display:block;height:185px;margin-top:1rem}.sample-day{padding:1rem}}
 
 .division-choice, .tabs a, .notice, .error, .scroll { border-radius: .85rem; }
+
+.plan-sheet .stats dd { font-size: clamp(1.15rem, 2.2vw, 1.8rem); }
