@@ -171,8 +171,6 @@ Edit `scheduler.py` to change:
 
 None! The codebase has been thoroughly tested and verified.
 
-See [BUG_REPORT.md](BUG_REPORT.md) and [BUG_FIX_SUMMARY.md](BUG_FIX_SUMMARY.md) for detailed analysis.
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please:

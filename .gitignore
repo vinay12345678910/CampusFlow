@@ -42,5 +42,11 @@ dist/
 build/
 *.egg-info/
 
+# Ignore development/internal files
+BUG_REPORT.md
+BUG_FIX_SUMMARY.md
+innovation-practical-review.md
+Index.html
+
 # Keep demo/sample data
 !CampusFlow-Demo.json
