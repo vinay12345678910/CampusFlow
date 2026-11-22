@@ -1,0 +1,373 @@
+{
+  "data": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "slots": [
+      "13:00 - 14:00",
+      "14:00 - 15:00",
+      "15:15 - 16:15",
+      "16:15 - 17:15"
+    ],
+    "rooms": [
+      "Lecture Hall A",
+      "Lecture Hall B",
+      "Observatory",
+      "Telemetry Lab"
+    ],
+    "teachers": [
+      {
+        "name": "Meera Joshi"
+      },
+      {
+        "name": "Vikram Roy"
+      },
+      {
+        "name": "Aditi Shah"
+      },
+      {
+        "name": "Rohan Patil"
+      }
+    ],
+    "subjects": [
+      {
+        "className": "SE-A",
+        "name": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "periods": 4,
+        "labRoom": "Observatory"
+      },
+      {
+        "className": "SE-B",
+        "name": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "periods": 4,
+        "labRoom": "Observatory"
+      },
+      {
+        "className": "TE-A",
+        "name": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "periods": 4,
+        "labRoom": "Telemetry Lab"
+      },
+      {
+        "className": "TE-B",
+        "name": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "periods": 4,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "periods": 4,
+        "labRoom": "Telemetry Lab"
+      }
+    ]
+  },
+  "timetables": {
+    "SE-A": {
+      "SE-A|0-0": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-A|0-1": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-A|0-2": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall A"
+      },
+      "SE-A|0-3": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall B"
+      },
+      "SE-A|1-0": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-A|1-1": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-A|1-2": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall A"
+      },
+      "SE-A|1-3": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall B"
+      },
+      "SE-A|2-0": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall A"
+      },
+      "SE-A|2-2": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall B"
+      },
+      "SE-A|3-0": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall A"
+      },
+      "SE-A|4-0": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall A"
+      }
+    },
+    "SE-B": {
+      "SE-B|0-0": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall A"
+      },
+      "SE-B|0-1": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall B"
+      },
+      "SE-B|0-2": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-B|0-3": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-B|1-0": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall A"
+      },
+      "SE-B|1-1": {
+        "subject": "Star Mapping",
+        "teacher": "Vikram Roy",
+        "room": "Lecture Hall B"
+      },
+      "SE-B|1-2": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-B|1-3": {
+        "subject": "Telescope Lab",
+        "teacher": "Aditi Shah",
+        "room": "Observatory"
+      },
+      "SE-B|2-1": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall A"
+      },
+      "SE-B|2-3": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall B"
+      },
+      "SE-B|3-1": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall A"
+      },
+      "SE-B|4-1": {
+        "subject": "Orbital Mechanics",
+        "teacher": "Meera Joshi",
+        "room": "Lecture Hall A"
+      }
+    },
+    "TE-A": {
+      "TE-A|0-0": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-A|0-1": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-A|0-2": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall B"
+      },
+      "TE-A|0-3": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall A"
+      },
+      "TE-A|1-0": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-A|1-1": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-A|1-2": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall B"
+      },
+      "TE-A|1-3": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall A"
+      },
+      "TE-A|2-0": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall B"
+      },
+      "TE-A|2-2": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall A"
+      },
+      "TE-A|3-2": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall A"
+      },
+      "TE-A|4-2": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall A"
+      }
+    },
+    "TE-B": {
+      "TE-B|0-0": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall B"
+      },
+      "TE-B|0-1": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall A"
+      },
+      "TE-B|0-2": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-B|0-3": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-B|1-0": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall B"
+      },
+      "TE-B|1-1": {
+        "subject": "Mission Planning",
+        "teacher": "Rohan Patil",
+        "room": "Lecture Hall A"
+      },
+      "TE-B|1-2": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-B|1-3": {
+        "subject": "Telemetry Workshop",
+        "teacher": "Meera Joshi",
+        "room": "Telemetry Lab"
+      },
+      "TE-B|2-1": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall B"
+      },
+      "TE-B|2-3": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall A"
+      },
+      "TE-B|3-3": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall A"
+      },
+      "TE-B|4-3": {
+        "subject": "Satellite Systems",
+        "teacher": "Aditi Shah",
+        "room": "Lecture Hall A"
+      }
+    }
+  }
+}

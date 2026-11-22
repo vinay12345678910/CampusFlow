@@ -1,0 +1,291 @@
+{
+  "data": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday"
+    ],
+    "slots": [
+      "09:00 - 10:00",
+      "10:00 - 11:00",
+      "11:15 - 12:15",
+      "12:15 - 13:15"
+    ],
+    "rooms": [
+      "Gallery",
+      "Drawing Room",
+      "Design Studio",
+      "Print Studio"
+    ],
+    "teachers": [
+      {
+        "name": "Leena Rao"
+      },
+      {
+        "name": "Kabir Shah"
+      },
+      {
+        "name": "Tara Sen"
+      },
+      {
+        "name": "Manav Kale"
+      }
+    ],
+    "subjects": [
+      {
+        "className": "SE-A",
+        "name": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Sketchbook Lab",
+        "teacher": "Tara Sen",
+        "periods": 2,
+        "labRoom": "Design Studio"
+      },
+      {
+        "className": "SE-B",
+        "name": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Sketchbook Lab",
+        "teacher": "Tara Sen",
+        "periods": 2,
+        "labRoom": "Design Studio"
+      },
+      {
+        "className": "TE-A",
+        "name": "Editorial Design",
+        "teacher": "Tara Sen",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Typography",
+        "teacher": "Manav Kale",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Printmaking Lab",
+        "teacher": "Leena Rao",
+        "periods": 2,
+        "labRoom": "Print Studio"
+      },
+      {
+        "className": "TE-B",
+        "name": "Editorial Design",
+        "teacher": "Tara Sen",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Typography",
+        "teacher": "Manav Kale",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Printmaking Lab",
+        "teacher": "Leena Rao",
+        "periods": 2,
+        "labRoom": "Print Studio"
+      }
+    ]
+  },
+  "timetables": {
+    "SE-A": {
+      "SE-A|0-0": {
+        "subject": "Sketchbook Lab",
+        "teacher": "Tara Sen",
+        "room": "Design Studio"
+      },
+      "SE-A|0-1": {
+        "subject": "Sketchbook Lab",
+        "teacher": "Tara Sen",
+        "room": "Design Studio"
+      },
+      "SE-A|0-2": {
+        "subject": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "room": "Gallery"
+      },
+      "SE-A|0-3": {
+        "subject": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "room": "Drawing Room"
+      },
+      "SE-A|1-0": {
+        "subject": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "room": "Gallery"
+      },
+      "SE-A|1-2": {
+        "subject": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "room": "Drawing Room"
+      },
+      "SE-A|2-0": {
+        "subject": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "room": "Gallery"
+      },
+      "SE-A|2-1": {
+        "subject": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "room": "Drawing Room"
+      }
+    },
+    "SE-B": {
+      "SE-B|0-0": {
+        "subject": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "room": "Gallery"
+      },
+      "SE-B|0-1": {
+        "subject": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "room": "Drawing Room"
+      },
+      "SE-B|0-2": {
+        "subject": "Sketchbook Lab",
+        "teacher": "Tara Sen",
+        "room": "Design Studio"
+      },
+      "SE-B|0-3": {
+        "subject": "Sketchbook Lab",
+        "teacher": "Tara Sen",
+        "room": "Design Studio"
+      },
+      "SE-B|1-1": {
+        "subject": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "room": "Gallery"
+      },
+      "SE-B|1-3": {
+        "subject": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "room": "Drawing Room"
+      },
+      "SE-B|2-1": {
+        "subject": "Visual Storytelling",
+        "teacher": "Leena Rao",
+        "room": "Gallery"
+      },
+      "SE-B|2-3": {
+        "subject": "Colour Theory",
+        "teacher": "Kabir Shah",
+        "room": "Drawing Room"
+      }
+    },
+    "TE-A": {
+      "TE-A|0-0": {
+        "subject": "Printmaking Lab",
+        "teacher": "Leena Rao",
+        "room": "Print Studio"
+      },
+      "TE-A|0-1": {
+        "subject": "Printmaking Lab",
+        "teacher": "Leena Rao",
+        "room": "Print Studio"
+      },
+      "TE-A|0-2": {
+        "subject": "Typography",
+        "teacher": "Manav Kale",
+        "room": "Drawing Room"
+      },
+      "TE-A|0-3": {
+        "subject": "Typography",
+        "teacher": "Manav Kale",
+        "room": "Gallery"
+      },
+      "TE-A|1-0": {
+        "subject": "Editorial Design",
+        "teacher": "Tara Sen",
+        "room": "Drawing Room"
+      },
+      "TE-A|1-2": {
+        "subject": "Editorial Design",
+        "teacher": "Tara Sen",
+        "room": "Gallery"
+      },
+      "TE-A|2-0": {
+        "subject": "Typography",
+        "teacher": "Manav Kale",
+        "room": "Drawing Room"
+      },
+      "TE-A|2-2": {
+        "subject": "Editorial Design",
+        "teacher": "Tara Sen",
+        "room": "Gallery"
+      }
+    },
+    "TE-B": {
+      "TE-B|0-0": {
+        "subject": "Typography",
+        "teacher": "Manav Kale",
+        "room": "Drawing Room"
+      },
+      "TE-B|0-1": {
+        "subject": "Typography",
+        "teacher": "Manav Kale",
+        "room": "Gallery"
+      },
+      "TE-B|0-2": {
+        "subject": "Printmaking Lab",
+        "teacher": "Leena Rao",
+        "room": "Print Studio"
+      },
+      "TE-B|0-3": {
+        "subject": "Printmaking Lab",
+        "teacher": "Leena Rao",
+        "room": "Print Studio"
+      },
+      "TE-B|1-1": {
+        "subject": "Editorial Design",
+        "teacher": "Tara Sen",
+        "room": "Drawing Room"
+      },
+      "TE-B|1-3": {
+        "subject": "Editorial Design",
+        "teacher": "Tara Sen",
+        "room": "Gallery"
+      },
+      "TE-B|2-2": {
+        "subject": "Typography",
+        "teacher": "Manav Kale",
+        "room": "Drawing Room"
+      },
+      "TE-B|2-3": {
+        "subject": "Editorial Design",
+        "teacher": "Tara Sen",
+        "room": "Gallery"
+      }
+    }
+  }
+}
