@@ -1,0 +1,860 @@
+{
+  "data": {
+    "days": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "slots": [
+      "09:00 - 10:00",
+      "10:00 - 11:00",
+      "11:15 - 12:15",
+      "12:15 - 13:15",
+      "14:00 - 15:00",
+      "15:00 - 16:00"
+    ],
+    "rooms": [
+      "Seminar Hall",
+      "Studio A",
+      "Studio B",
+      "Robotics Lab",
+      "Vision Lab"
+    ],
+    "teachers": [
+      {
+        "name": "Dr. Mira Kale"
+      },
+      {
+        "name": "Prof. Neel Shah"
+      },
+      {
+        "name": "Dr. Riya Sen"
+      },
+      {
+        "name": "Prof. Isha Rao"
+      },
+      {
+        "name": "Prof. Dev Naik"
+      },
+      {
+        "name": "Dr. Tara Das"
+      },
+      {
+        "name": "Prof. Asha Roy"
+      },
+      {
+        "name": "Prof. Kiran Sane"
+      }
+    ],
+    "subjects": [
+      {
+        "className": "SE-A",
+        "name": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-A",
+        "name": "Robotics Workshop",
+        "teacher": "Prof. Asha Roy",
+        "periods": 2,
+        "labRoom": "Robotics Lab"
+      },
+      {
+        "className": "SE-B",
+        "name": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "SE-B",
+        "name": "Robotics Workshop",
+        "teacher": "Prof. Asha Roy",
+        "periods": 2,
+        "labRoom": "Robotics Lab"
+      },
+      {
+        "className": "TE-A",
+        "name": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-A",
+        "name": "Computer Vision Workshop",
+        "teacher": "Prof. Kiran Sane",
+        "periods": 2,
+        "labRoom": "Vision Lab"
+      },
+      {
+        "className": "TE-B",
+        "name": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "periods": 5,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "periods": 3,
+        "labRoom": ""
+      },
+      {
+        "className": "TE-B",
+        "name": "Computer Vision Workshop",
+        "teacher": "Prof. Kiran Sane",
+        "periods": 2,
+        "labRoom": "Vision Lab"
+      }
+    ]
+  },
+  "timetables": {
+    "SE-A": {
+      "SE-A|0-0": {
+        "subject": "Robotics Workshop",
+        "teacher": "Prof. Asha Roy",
+        "room": "Robotics Lab"
+      },
+      "SE-A|0-1": {
+        "subject": "Robotics Workshop",
+        "teacher": "Prof. Asha Roy",
+        "room": "Robotics Lab"
+      },
+      "SE-A|0-2": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Seminar Hall"
+      },
+      "SE-A|0-3": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Seminar Hall"
+      },
+      "SE-A|0-4": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Seminar Hall"
+      },
+      "SE-A|0-5": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Seminar Hall"
+      },
+      "SE-A|1-0": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Seminar Hall"
+      },
+      "SE-A|1-1": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio A"
+      },
+      "SE-A|1-2": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio A"
+      },
+      "SE-A|1-3": {
+        "subject": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "room": "Robotics Lab"
+      },
+      "SE-A|1-4": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      },
+      "SE-A|1-5": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Robotics Lab"
+      },
+      "SE-A|2-0": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Robotics Lab"
+      },
+      "SE-A|2-1": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      },
+      "SE-A|2-2": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Robotics Lab"
+      },
+      "SE-A|2-3": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Robotics Lab"
+      },
+      "SE-A|2-4": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio B"
+      },
+      "SE-A|2-5": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio B"
+      },
+      "SE-A|3-0": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio B"
+      },
+      "SE-A|3-1": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio B"
+      },
+      "SE-A|3-2": {
+        "subject": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "room": "Robotics Lab"
+      },
+      "SE-A|3-3": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Robotics Lab"
+      },
+      "SE-A|3-4": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Robotics Lab"
+      },
+      "SE-A|3-5": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Robotics Lab"
+      },
+      "SE-A|4-0": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      },
+      "SE-A|4-1": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio B"
+      },
+      "SE-A|4-2": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio B"
+      },
+      "SE-A|4-3": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "SE-A|4-4": {
+        "subject": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "room": "Robotics Lab"
+      },
+      "SE-A|4-5": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio B"
+      }
+    },
+    "SE-B": {
+      "SE-B|0-0": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Seminar Hall"
+      },
+      "SE-B|0-1": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Seminar Hall"
+      },
+      "SE-B|0-2": {
+        "subject": "Robotics Workshop",
+        "teacher": "Prof. Asha Roy",
+        "room": "Robotics Lab"
+      },
+      "SE-B|0-3": {
+        "subject": "Robotics Workshop",
+        "teacher": "Prof. Asha Roy",
+        "room": "Robotics Lab"
+      },
+      "SE-B|0-4": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio B"
+      },
+      "SE-B|0-5": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      },
+      "SE-B|1-0": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Robotics Lab"
+      },
+      "SE-B|1-1": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      },
+      "SE-B|1-2": {
+        "subject": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "room": "Robotics Lab"
+      },
+      "SE-B|1-3": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio B"
+      },
+      "SE-B|1-4": {
+        "subject": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "room": "Studio B"
+      },
+      "SE-B|1-5": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio B"
+      },
+      "SE-B|2-0": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio B"
+      },
+      "SE-B|2-1": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio B"
+      },
+      "SE-B|2-2": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio B"
+      },
+      "SE-B|2-3": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio B"
+      },
+      "SE-B|2-4": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio A"
+      },
+      "SE-B|2-5": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Seminar Hall"
+      },
+      "SE-B|3-0": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Seminar Hall"
+      },
+      "SE-B|3-1": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Seminar Hall"
+      },
+      "SE-B|3-2": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio B"
+      },
+      "SE-B|3-3": {
+        "subject": "Linear Algebra for AI",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio B"
+      },
+      "SE-B|3-4": {
+        "subject": "Data Visualization",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio A"
+      },
+      "SE-B|3-5": {
+        "subject": "Design Thinking",
+        "teacher": "Dr. Tara Das",
+        "room": "Studio B"
+      },
+      "SE-B|4-0": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio B"
+      },
+      "SE-B|4-1": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "SE-B|4-2": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio A"
+      },
+      "SE-B|4-3": {
+        "subject": "Data Engineering",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio B"
+      },
+      "SE-B|4-4": {
+        "subject": "Creative Coding",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio B"
+      },
+      "SE-B|4-5": {
+        "subject": "Internet of Things",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      }
+    },
+    "TE-A": {
+      "TE-A|0-0": {
+        "subject": "Computer Vision Workshop",
+        "teacher": "Prof. Kiran Sane",
+        "room": "Vision Lab"
+      },
+      "TE-A|0-1": {
+        "subject": "Computer Vision Workshop",
+        "teacher": "Prof. Kiran Sane",
+        "room": "Vision Lab"
+      },
+      "TE-A|0-2": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio A"
+      },
+      "TE-A|0-3": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "TE-A|0-4": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Robotics Lab"
+      },
+      "TE-A|0-5": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio B"
+      },
+      "TE-A|1-0": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio B"
+      },
+      "TE-A|1-1": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Seminar Hall"
+      },
+      "TE-A|1-2": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Seminar Hall"
+      },
+      "TE-A|1-3": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Seminar Hall"
+      },
+      "TE-A|1-4": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Seminar Hall"
+      },
+      "TE-A|1-5": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Seminar Hall"
+      },
+      "TE-A|2-0": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Studio A"
+      },
+      "TE-A|2-1": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio A"
+      },
+      "TE-A|2-2": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio A"
+      },
+      "TE-A|2-3": {
+        "subject": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio A"
+      },
+      "TE-A|2-4": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Robotics Lab"
+      },
+      "TE-A|2-5": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Robotics Lab"
+      },
+      "TE-A|3-0": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Robotics Lab"
+      },
+      "TE-A|3-1": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Robotics Lab"
+      },
+      "TE-A|3-2": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Seminar Hall"
+      },
+      "TE-A|3-3": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Seminar Hall"
+      },
+      "TE-A|3-4": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Seminar Hall"
+      },
+      "TE-A|3-5": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Seminar Hall"
+      },
+      "TE-A|4-0": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Seminar Hall"
+      },
+      "TE-A|4-1": {
+        "subject": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      },
+      "TE-A|4-2": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Robotics Lab"
+      },
+      "TE-A|4-3": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Robotics Lab"
+      },
+      "TE-A|4-4": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "TE-A|4-5": {
+        "subject": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "room": "Robotics Lab"
+      }
+    },
+    "TE-B": {
+      "TE-B|0-0": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio A"
+      },
+      "TE-B|0-1": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio A"
+      },
+      "TE-B|0-2": {
+        "subject": "Computer Vision Workshop",
+        "teacher": "Prof. Kiran Sane",
+        "room": "Vision Lab"
+      },
+      "TE-B|0-3": {
+        "subject": "Computer Vision Workshop",
+        "teacher": "Prof. Kiran Sane",
+        "room": "Vision Lab"
+      },
+      "TE-B|0-4": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio A"
+      },
+      "TE-B|0-5": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "TE-B|1-0": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Studio A"
+      },
+      "TE-B|1-1": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Studio B"
+      },
+      "TE-B|1-2": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio B"
+      },
+      "TE-B|1-3": {
+        "subject": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio A"
+      },
+      "TE-B|1-4": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Studio A"
+      },
+      "TE-B|1-5": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio A"
+      },
+      "TE-B|2-0": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Seminar Hall"
+      },
+      "TE-B|2-1": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Seminar Hall"
+      },
+      "TE-B|2-2": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Seminar Hall"
+      },
+      "TE-B|2-3": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Seminar Hall"
+      },
+      "TE-B|2-4": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Seminar Hall"
+      },
+      "TE-B|2-5": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio A"
+      },
+      "TE-B|3-0": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "TE-B|3-1": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Studio A"
+      },
+      "TE-B|3-2": {
+        "subject": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio A"
+      },
+      "TE-B|3-3": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Studio A"
+      },
+      "TE-B|3-4": {
+        "subject": "Applied Research",
+        "teacher": "Dr. Riya Sen",
+        "room": "Studio B"
+      },
+      "TE-B|3-5": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Studio A"
+      },
+      "TE-B|4-0": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Studio A"
+      },
+      "TE-B|4-1": {
+        "subject": "Deep Learning",
+        "teacher": "Prof. Isha Rao",
+        "room": "Seminar Hall"
+      },
+      "TE-B|4-2": {
+        "subject": "Natural Language Processing",
+        "teacher": "Prof. Dev Naik",
+        "room": "Seminar Hall"
+      },
+      "TE-B|4-3": {
+        "subject": "Cloud Computing",
+        "teacher": "Dr. Mira Kale",
+        "room": "Seminar Hall"
+      },
+      "TE-B|4-4": {
+        "subject": "AI Product Design",
+        "teacher": "Prof. Neel Shah",
+        "room": "Seminar Hall"
+      },
+      "TE-B|4-5": {
+        "subject": "Responsible AI",
+        "teacher": "Dr. Tara Das",
+        "room": "Seminar Hall"
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CampusFlow · AI and ML department</title><link rel="stylesheet" href="{{ url_for('static',filename='campus.css') }}"></head>
+<body><a class="skip" href="#workspace">Skip to content</a><header><div class="brand"><i aria-hidden="true"></i><div><strong>CampusFlow</strong><span>AI and ML department</span></div></div>
+<nav aria-label="Main navigation">{% for key,title in [('welcome','Welcome'),('schedule','Schedule'),('view','Timetables'),('manage','College details')] %}<a href="{{url_for('home') if key=='welcome' else url_for('home',tab=key)}}" {% if tab==key %}aria-current="page"{% endif %}>{{title}}</a>{% endfor %}</nav></header>
+<main id="workspace">
+{% macro fields(action) %}<input type="hidden" name="action" value="{{action}}"><input type="hidden" name="rev" value="{{rev}}"><input type="hidden" name="tab" value="{{tab}}">{% endmacro %}
+{% if error %}<p class="error" role="alert">{{error}}</p>{% endif %}
+{% if request.args.get('saved') %}<p class="notice" role="status">College details saved.</p>{% endif %}
+{% if message %}<p class="notice" role="status">{{message}}</p>{% endif %}
+{% if report and tables %}<section class="report"><strong>{{report.scheduled}} / {{report.required}} periods booked</strong> · {{report.clashes.teacher}} teacher clashes · {{report.clashes.room}} room clashes · {{report.clashes.division}} division clashes
+{% for issue in report.issues %}<p>{{issue}}</p>{% else %}<p>Subject counts and consecutive lab sessions verified for all saved divisions.</p>{% endfor %}</section>{% endif %}
+{% if tab=='welcome' %}
+<section class="welcome-hero">
+  <div class="intro">
+    <h1>Welcome to CampusFlow</h1>
+    <p>Plan the teaching week for your department. Choose your divisions, check room needs and save a timetable for each class.</p>
+    <a class="welcome-start" href="/?tab=schedule">Create a timetable</a>
+    <a class="secondary-link" href="/?tab=manage">Edit college details</a>
+  </div>
+  <figure class="sample-day">
+    {% if tables %}
+      {% set group = tables|first %}
+      {% set entries = tables[group]|sort(attribute='slot') %}
+      {% set day_index = entries[0].slot // (c.slots|length) %}
+      <figcaption><strong>{{c.days[day_index]}}</strong><span>{{group}}</span></figcaption>
+      <dl>{% for r in entries[:3] if r.slot // (c.slots|length) == day_index %}
+        <dt>{{c.slots[r.slot % (c.slots|length)].split('-')[0].split('–')[0]|trim}}</dt>
+        <dd>{{r.subject}}<small>{{r.room}}</small></dd>
+      {% endfor %}</dl>
+      <a href="{{url_for('home',tab='view',view=group)}}">View full timetable</a>
+    {% else %}
+      <figcaption><strong>Monday</strong><span>Example timetable</span></figcaption>
+      <dl><dt>09:00</dt><dd>Python Programming<small>Room 101</small></dd><dt>10:00</dt><dd>Data Structures<small>Room 102</small></dd></dl>
+    {% endif %}
+  </figure>
+</section>
+<h2 class="steps-title">How it works</h2>
+<ol class="welcome-steps">
+  <li><strong>Choose your class</strong>Tick the divisions you want to schedule.</li>
+  <li><strong>Build your week</strong>Check the room estimate, then select <b>Build timetable</b>.</li>
+  <li><strong>View or download</strong>Open <a href="/?tab=view">Timetables</a> to see each class, teacher and room, or download a spreadsheet file.</li>
+</ol>
+<details class="welcome-terms"><summary>What do the timetable terms mean?</summary>
+  <dl>
+    <dt>Division</dt><dd>A group of students who attend classes together, such as Second Year A.</dd>
+    <dt>Weekly periods</dt><dd>How many class slots a subject needs each week.</dd>
+    <dt>Double lab</dt><dd>A practical class that takes two periods in a row.</dd>
+    <dt>Clash</dt><dd>Two classes need the same teacher, room or division at the same time.</dd>
+    <dt>Difficulty</dt><dd>How often similar plans took extra work to arrange.</dd>
+  </dl>
+</details>
+{% elif tab=='schedule' %}
+<h1>Plan your week</h1>
+<p class="lead">Choose the divisions that need a timetable. See what they need before you build.</p>
+<div class="planner">
+<section class="division-panel"><h2>Class divisions</h2>
+<form method="get" action="/" id="selection"><input type="hidden" name="tab" value="schedule"><input type="hidden" name="choose" value="1"><input type="hidden" name="rev" value="{{rev}}">
+{% for d in classes %}<label class="division-choice"><input type="checkbox" name="selected" value="{{d}}" {% if d in selected %}checked{% endif %}><span>{{d}}</span><small>{{'Saved' if d in tables else 'Unscheduled'}}</small></label>{% endfor %}
+<button id="refresh-plan">Update estimate</button></form></section>
+<section class="plan-sheet"><h2>Scheduling difficulty</h2>
+{% if plan %}
+<div class="difficulty"><strong>{{plan.score}}<span>%</span></strong><span>of similar sample weeks took extra work to arrange.</span></div>
+<meter aria-label="Estimated scheduling difficulty" min="0" max="100" value="{{plan.score}}">{{plan.score}}%</meter>
+<dl class="stats"><div><dt>Weekly periods</dt><dd>{{plan.periods}}</dd></div><div><dt>Teachers needed</dt><dd>{{plan.teachers}}</dd></div><div><dt>Minimum rooms</dt><dd>≥ {{plan.rooms}}</dd></div></dl>
+<p class="footnote">At least {{plan.rooms}} of {{c.rooms|length}} available rooms across the week{% if plan.held %}, including {{plan.held}} periods already saved for other divisions{% endif %}. The final layout may use more.</p>
+{% if plan.labs %}<p><b>Required labs</b> · {{plan.labs|join(' · ')}}</p>{% endif %}
+<button form="selection" formmethod="post" formaction="/action" name="action" value="generate">Build timetable</button>
+{% else %}<p>Choose divisions with available teachers, rooms and class periods to see an estimate.</p>{% endif %}</section></div>
+{% if tables %}<p><a href="/?tab=view">Explore saved timetables →</a></p>{% endif %}
+{% elif tab=='view' %}
+<h1>Class timetables</h1><div class="tabs">{% for d in classes %}<a {% if d==division %}aria-current="page"{% endif %} href="{{url_for('home',tab='view',view=d)}}">{{d}}</a>{% endfor %}</div>
+<section class="week-sheet"><h2>{{division}}</h2>{% if division in tables %}
+<label id="day-control" hidden>Show <select id="day-filter"><option value="">Full week</option>{% for day in c.days %}<option>{{day}}</option>{% endfor %}</select></label><div class="scroll"><table><thead><tr><th>Day</th>{% for slot in c.slots %}<th>{{slot}}</th>{% endfor %}</tr></thead><tbody>{% for day in c.days %}{% set day_index=loop.index0 %}<tr data-day="{{day}}"><th>{{day}}</th>{% for slot in c.slots %}{% set r=slots.get(day_index*c.slots|length+loop.index0) %}<td>{% if r %}<b class="lesson">{{r.subject}}</b><br>{{r.teacher}}<small>{{r.room}}</small>{% else %}—{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody></table></div><p><a href="{{url_for('download',division=division)}}">Download this division’s CSV</a></p>
+{% else %}<p>This division has no saved timetable. <a href="/?tab=schedule">Generate its schedule</a>.</p>{% endif %}</section>
+{% if tables %}<section class="room-sheet"><h2>Room use across saved divisions</h2>
+<p><strong>{{peak}} rooms at the busiest time</strong> · {{c.days[peak_slot // (c.slots|length)]}} · {{c.slots[peak_slot % (c.slots|length)]}}</p>
+<details><summary>Room-by-room bookings</summary><dl class="room-list">{% for room in c.rooms %}<div><dt>{{room}}</dt><dd>{{room_counts[room]}} periods</dd></div>{% endfor %}</dl></details></section>
+<form action="/action" method="post">{{fields('validate')}}<input type="hidden" name="view" value="{{division}}"><button>Validate all saved timetables</button> <a href="/download.csv">Download all as CSV</a></form>{% endif %}
+{% else %}
+<h1>College details</h1><p class="lead">Changes to subjects, rooms and timings clear affected timetables.</p>
+<nav class="tabs jump" aria-label="College details sections"><a href="#teacher">Teachers</a><a href="#room">Classrooms</a><a href="#subjects">Subjects</a><a href="#week">Working week</a><a href="#import">Import</a></nav>
+<div class="grid">{% for kind,items in [('teacher',c.teachers),('room',c.rooms)] %}<section id="{{kind}}"><h2>{{'Teachers' if kind=='teacher' else 'Classrooms'}}</h2>
+{% for item in items %}<form class="row" action="/action" method="post">{{fields('delete_'+kind)}}<span>{{item}}</span><input type="hidden" name="name" value="{{item}}"><button class="subtle" aria-label="Remove {{item}}">Remove</button></form>{% endfor %}
+<form action="/action" method="post">{{fields('add_'+kind)}}<label>New {{kind}} name<input name="name" required></label><button>Add {{kind}}</button></form></section>{% endfor %}</div>
+{% macro subject_form(s,index) %}<form action="/action" method="post">{{fields('subject')}}<input type="hidden" name="index" value="{{index}}"><div class="grid">
+<label>Division<select name="division">{% for d in classes %}<option {% if s and s.division==d %}selected{% endif %}>{{d}}</option>{% endfor %}</select></label>
+<label>Subject name<input name="name" value="{{s.name if s else ''}}" required></label>
+<label>Teacher<select name="teacher">{% for t in c.teachers %}<option {% if s and s.teacher==t %}selected{% endif %}>{{t}}</option>{% endfor %}</select></label>
+<label>Weekly periods<input type="number" min="1" max="168" name="periods" value="{{s.periods if s else 5}}" required></label>
+<label>Session<select name="lab"><option value="">Single lecture</option>{% for room in c.rooms %}<option value="{{room}}" {% if s and s.lab==room %}selected{% endif %}>Double lab · {{room}}</option>{% endfor %}</select></label></div><button>{{'Save subject' if s else 'Add subject'}}</button></form>{% endmacro %}
+<section id="subjects"><h2>Subjects</h2><details><summary>Add a subject</summary>{{subject_form(none,'')}}</details>
+{% for d in classes %}<h3>{{d}}</h3>{% for s in c.subjects %}{% if s.division==d %}<details><summary>{{s.name}} · {{s.periods}} periods <small>{{s.teacher}}{% if s.lab %} · {{s.lab}}{% endif %}</small></summary>{{subject_form(s,loop.index0)}}<form action="/action" method="post">{{fields('delete_subject')}}<input type="hidden" name="index" value="{{loop.index0}}"><button class="subtle">Delete subject</button></form></details>{% endif %}{% endfor %}{% endfor %}</section>
+<section id="week"><h2>Working week</h2><form action="/action" method="post">{{fields('timing')}}<label>Days, separated by commas<input name="days" value="{{c.days|join(', ')}}" required></label><label>Daily periods, one 24-hour range per line<textarea rows="6" name="slots" required>{{c.slots|join('\n')}}</textarea></label><button>Save timings</button></form></section>
+<section id="import"><details><summary>Import a CampusFlow project</summary><p>Choose a CampusFlow demo or exported project (.json). Importing replaces your current workspace.</p><form action="/action" method="post" enctype="multipart/form-data">{{fields('import')}}<input type="file" name="file" accept=".json" required><label><input type="checkbox" name="catalog_only"> Import only college details and discard imported bookings</label><label><input type="checkbox" name="replace" required> Replace this workspace with the imported project</label><button>Import project</button></form></details></section>
+{% endif %}</main><script src="{{ url_for('static', filename='campus.js') }}"></script></body></html>

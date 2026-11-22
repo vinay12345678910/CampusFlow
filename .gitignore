@@ -1,0 +1,46 @@
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore backups
+backups/
+
+# Ignore virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Ignore IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore logs
+*.log
+/tmp/
+
+# Ignore test outputs
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Ignore distribution files
+dist/
+build/
+*.egg-info/
+
+# Keep demo/sample data
+!CampusFlow-Demo.json

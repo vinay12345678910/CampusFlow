@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CampusFlow</title><link rel="stylesheet" href="static/campus.css"></head>
+<body><header><div><strong>CampusFlow</strong><span>AI and ML department</span></div></header><main><h1>Open CampusFlow</h1><section><p>In this project folder, run <code>python app.py</code>, then open the local app.</p><a href="http://127.0.0.1:5000/">Open the Python app →</a></section>
+<section><h2>Previous browser project</h2><p>Export details saved by the older version, then import the file under College details in the Python app.</p><button id="backup">Export saved project</button><p id="status" role="status"></p></section></main>
+<script>
+document.getElementById("backup").onclick=()=>{
+ const status=document.getElementById("status");
+ try{
+  const data=JSON.parse(localStorage.getItem("campusFlowData"));
+  if(!data){status.textContent="No saved project in this browser profile.";return;}
+  const timetables=JSON.parse(localStorage.getItem("campusFlowTimetables")||"{}");
+  const url=URL.createObjectURL(new Blob([JSON.stringify({data,timetables})],{type:"application/json"}));
+  const a=document.createElement("a");a.href=url;a.download="campusflow-project.json";a.click();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+  status.textContent="Exported campusflow-project.json.";
+ }catch{status.textContent="Unable to read the saved project in this browser.";}
+};
+</script></body></html>
